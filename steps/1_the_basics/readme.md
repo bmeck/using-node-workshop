@@ -7,7 +7,7 @@ accepting connections.
 
 ## Action 1
 
-Install Node >= 14.18.1 , preferably 16.11.1 :
+Install Node >= 16.11.1 :
 - https://nodejs.org/en/download/current/
 
 Create a new directory for our server project.

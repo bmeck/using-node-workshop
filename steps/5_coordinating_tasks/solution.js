@@ -1,5 +1,6 @@
 ////////////////////////////////
 // This step is about learning:
+// * timers/promises
 // * Promise.race/Promise.all
 // * AbortController
 ////////////////////////////////
@@ -42,21 +43,25 @@ const server = http.createServer((req, res) => {
       return;
     }
     //#endregion previous step - ignore
-    if (req.url === '/race') {
+    if (req.url === '/timer') {
       const controller = new AbortController();
       const { signal } = controller;
 
 
       setTimeout(5_000, null, { signal })
         .then(() => {
-          controller.abort();
-          res.writeHead(500);
-          res.end('TIMEOUT');
+          if (!signal.aborted) {
+            controller.abort();
+            res.writeHead(500);
+            res.end('TIMEOUT');
+          }
         });
       once(res, 'close', { signal })
         .then(() => {
-          controller.abort();
-          // closed normally
+          if (!signal.aborted) {
+            controller.abort();
+            // closed normally
+          }
         });
       return;
     }

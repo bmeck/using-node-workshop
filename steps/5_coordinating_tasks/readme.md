@@ -42,3 +42,25 @@ Add an event handler for `'close'` on the response.
 
 Use an abort controller to ensure when the timeout or the close event occurs
 that the other doesn't fire a callback.
+
+```mjs
+      const controller = new AbortController();
+      const { signal } = controller;
+
+
+      setTimeout(5_000, null, { signal })
+        .then(() => {
+          if (!signal.aborted) {
+            controller.abort();
+            res.writeHead(500);
+            res.end('TIMEOUT');
+          }
+        });
+      once(res, 'close', { signal })
+        .then(() => {
+          if (!signal.aborted) {
+            controller.abort();
+            // closed normally
+          }
+        });
+```
