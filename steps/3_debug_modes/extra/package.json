@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "imports": {
+    "#logger": {
+      "debug": "./debug-logger.js",
+      "default": "./logger.js"
+    }
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
+  }
+}

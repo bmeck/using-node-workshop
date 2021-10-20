@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "scripts": {
+    "step_1": "node steps/01_the_basics/solution.js",
+    "step_2": "node steps/02_tracking_resources/solution.js",
+    "step_3": "node steps/03_debug_modes/solution.js",
+    "step_4": "node steps/04_the_inspector/solution.js",
+    "step_5": "node steps/05_coordinating_tasks/solution.js",
+    "step_6": "node steps/06_async_and_blocking/solution.js"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@types/node": "^16.9.6"
+  }
+}
